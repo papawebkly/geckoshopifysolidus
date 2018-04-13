@@ -16,4 +16,10 @@ module Spree::BaseHelper
           safe_join(taxons, "\n")
         end
       end
+
+      def applicable_filters_for(_taxon)
+        [:brand_filter, :price_filter].map do |filter_name|
+          Spree::Core::ProductFilters.send(filter_name) if Spree::Core::ProductFilters.respond_to?(filter_name)
+        end.compact
+      end
 end
