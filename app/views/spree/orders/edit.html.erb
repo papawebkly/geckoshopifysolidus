@@ -12,19 +12,19 @@
   <% else %>
 
     <div data-hook="outside_cart_form">
-      <%= form_for @order, url: update_cart_path, html: {id: 'update-cart'} do |order_form| %>
+      <%= form_for @order, url: update_cart_path, html: {id: 'update-cart', class: 'form-inline'} do |order_form| %>
         <div data-hook="inside_cart_form">
 
           <div data-hook="cart_items">
             <%= render 'form', order_form: order_form %>
           </div>
-
+          <hr>
           <div class="links columns sixteen alpha omega" data-hook="cart_buttons">
-            <%= order_form.text_field :coupon_code, size: 10, placeholder: t('spree.coupon_code') %>
-            <%= button_tag class: 'primary', id: 'update-button' do %>
+            <%= order_form.text_field :coupon_code, size: 10, placeholder: t('spree.coupon_code'), class: 'form-control' %>
+            <%= button_tag class: 'primary btn btn-success', id: 'update-button' do %>
               <%= t('spree.update') %>
             <% end %>
-            <%= button_tag class: 'button checkout primary', id: 'checkout-link', name: 'checkout' do %>
+            <%= button_tag class: 'button checkout primary btn btn-primary', id: 'checkout-link', name: 'checkout' do %>
               <%= t('spree.checkout') %>
             <% end %>
           </div>
@@ -32,13 +32,13 @@
         </div>
       <% end %>
     </div>
-
+    <hr>
     <div id="empty-cart" data-hook>
       <%= form_tag empty_cart_path, method: :put do %>
         <p id="clear_cart_link" data-hook>
-        <%= submit_tag t('spree.empty_cart'), class: 'button gray' %>
+        <%= submit_tag t('spree.empty_cart'), class: 'button gray btn btn-default' %>
         <%= t('spree.or') %>
-        <%= link_to t('spree.continue_shopping'), products_path, class: 'continue button gray' %>
+        <%= link_to t('spree.continue_shopping'), products_path, class: 'continue button gray btn btn-default' %>
         </p>
       <% end %>
     </div>
