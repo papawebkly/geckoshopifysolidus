@@ -22,38 +22,43 @@
 </div>
 
 <% if products.any? %>
-  <div id="products" class="inline product-listing row" data-hook>
-    <% products.each do |product| %>
-      <div class="col-sm-6 col-md-4">
-        <% url = spree.product_path(product, taxon_id: @taxon.try(:id)) %>
-        <div id="product_<%= product.id %>" class="thumbnail <%= cycle("alpha", "secondary", "", "omega secondary", name: "classes") %>" data-hook="products_list_item" itemscope itemtype="http://schema.org/Product">
-          <% cache(@taxon.present? ? [I18n.locale, current_pricing_options, @taxon, product] : [I18n.locale, current_pricing_options, product]) do %>
-            <div class="product-image">
-              <%= link_to(render('spree/shared/image', image: product.display_image, size: :small, itemprop: "image"), url, itemprop: 'url') %>
-            </div>
-            <div class="caption">
-              <h3>
-                <%= link_to truncate(product.name, length: 50), url, class: 'info', itemprop: "name", title: product.name %>
-              </h3>
-              <p>
-                <%= link_to url, class: 'btn btn-primary' do %>
-                <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-                  <% if price = product.price_for(current_pricing_options) %>
-                    <span class="price selling" itemprop="price" content="<%= price.to_d %>">
-                      <%= price.to_html %>
-                    </span>
-                  <% end %>
-                  <span itemprop="priceCurrency" content="<%= current_pricing_options.currency %>"></span>
-                </span>
+  <section class="products-grid">
+    <div class="container">
+      <div id="products" class="row products-container" style="position: relative; height: 990px;" data-hook>
+        <% products.each do |product| %>
+          <div class="col-md-4 col-sm-6 col-xs-12 product" style="position: absolute; left: 0px; top: 0px;">
+            <% url = spree.product_path(product, taxon_id: @taxon.try(:id)) %>
+
+            <div id="product_<%= product.id %>" class="thumbnail <%= cycle("alpha", "secondary", "", "omega secondary", name: "classes") %>" data-hook="products_list_item" itemscope itemtype="http://schema.org/Product" style="background-image: url('<%= product.display_image.attachment(:large) %>');">
+              <% cache(@taxon.present? ? [I18n.locale, current_pricing_options, @taxon, product] : [I18n.locale, current_pricing_options, product]) do %>
+                <div class="product-details text-center">
+                    <div class="align-vertical">
+                        <h3><%= product.name %></h3>
+                        <%= link_to url, class: 'btn btn-primary' do %>
+                            <i class="fa fa-shopping-cart"></i> Add to cart
+                        <% end %>
+                        <p class="product-price">
+                          <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                            <% if price = product.price_for(current_pricing_options) %>
+                              <span class="price selling" itemprop="price" content="<%= price.to_d %>">
+                                <%= price.to_html %>
+                              </span>
+                            <% end %>
+                            <span itemprop="priceCurrency" content="<%= current_pricing_options.currency %>"></span>
+                          </span>
+                        </p>
+                    </div>
+                </div>
                 <% end %>
-              </p>
             </div>
-          <% end %>
-        </div>
+            
+          </div>
+      
+        <% end %>
+        <% reset_cycle("classes") %>
       </div>
-    <% end %>
-    <% reset_cycle("classes") %>
-  </div>
+    </div><!-- /.container -->
+  </section>
 <% end %>
 
 <% if paginated_products.respond_to?(:total_pages) %>
