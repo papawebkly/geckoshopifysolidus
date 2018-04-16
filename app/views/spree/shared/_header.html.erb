@@ -63,15 +63,16 @@
                     <!--a href="#" class="menu-cart"><i class="fa fa-shopping-cart"></i> $0.00</a-->
 
                 </ul>
-                <ul class="nav navbar-nav navbar-right">
-                  <li id="link-to-cart" data-hook>
-                      <%= link_to spree.cart_path, class: 'menu-cart' do %>
-                        <i class="fa fa-shopping-cart"></i>
-                        <%= "(#{current_order.item_count}) #{current_order.display_total.to_html}"   %>
-                      <% end %>
-                  </li>
-                </ul>
-
+                <% if (current_order != nil) then %>
+                    <ul class="nav navbar-nav navbar-right">
+                    <li id="link-to-cart" data-hook>
+                        <%= link_to spree.cart_path, class: 'menu-cart' do %>
+                            <i class="fa fa-shopping-cart"></i>
+                            <%= "(#{current_order.item_count}) #{current_order.display_total.to_html}"   %>
+                        <% end %>
+                    </li>
+                    </ul>
+                <% end %>
                 <!--ul class="nav navbar-nav navbar-right">
                     <li>
                         <a href="#sidr" class="side-menu-opener">

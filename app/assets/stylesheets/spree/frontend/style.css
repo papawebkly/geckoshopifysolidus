@@ -2868,3 +2868,86 @@ img.mfp-img {
   display: inline-block !important;
   margin-bottom: 25px;
 }
+.customed-font-normal{
+  font-weight: normal !important;
+}
+.customed_delete_image img{
+  max-width: 32px !important;
+}
+.customed_input_width{
+  width:80px !important;
+}
+.table > tbody + tbody {
+  border-top: 1px solid #ddd !important;
+}
+.customed_li{
+  border: 0px solid #ddd !important;
+  padding: 0px 0px !important;
+}
+.customed_li input{
+  width: 30px !important;
+  height:14px !important;
+}
+.customed_li label{
+  font-size: 12px !important;
+  line-height: 14px !important;
+}
+
+.progress-steps{
+  margin:30px;
+}
+
+.progress-steps li{
+  float:left;
+  margin-left: 80px;
+}
+
+.customed-address-container{
+  margin-top:30px;
+}
+
+.customed-address-container input{
+  margin-bottom:0px !important;
+}
+.progress-steps .completed-first{
+  color: #f57c00 !important;
+}
+.progress-steps .completed{
+  color: #f57c00 !important;
+}
+.checkbox input{
+  height:20px !important;
+}
+.customed_address_checkbox input{
+  width:30px !important;;
+  height: 20px !important;
+}
+.stock-item .item-image{
+  padding: 10px !important;
+}
+.d_customed_li
+{
+  border: 0px;
+}
+
+.d_customed_li input
+{
+  width: 20px;
+  height: 20px;
+}
+.d_customed_li span
+{
+  font-size: 16px !important;
+  font-weight:normal !important;
+}
+.orange{
+  color:#f57c00;
+  padding-left: 30px;
+}
+
+.card_customed_li{
+  border:0px;
+}
+.customed-max-width{
+  max-width:300px !important;
+}

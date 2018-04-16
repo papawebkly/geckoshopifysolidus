@@ -2,7 +2,7 @@
   <legend align="center"><%= t('spree.payment_information') %></legend>
   <div data-hook="checkout_payment_step">
     <% if @wallet_payment_sources.present? %>
-      <div class="card_options">
+      <div class="card_options d_customed_li">
         <%= radio_button_tag 'use_existing_card', 'yes', true %>
         <label for="use_existing_card_yes">
           <%= t('spree.use_existing_cc') %>
@@ -35,7 +35,7 @@
       </div>
     <% end %>
 
-    <div id="payment-method-fields" data-hook>
+    <div id="payment-method-fields" class ="d_customed_li" data-hook>
       <% @order.available_payment_methods.each do |method| %>
       <p>
         <label>
@@ -46,9 +46,9 @@
       <% end %>
     </div>
 
-    <ul id="payment-methods" data-hook>
+    <ul id="payment-methods list-group" data-hook>
       <% @order.available_payment_methods.each do |method| %>
-        <li id="payment_method_<%= method.id %>" class="<%= 'last' if method == @order.available_payment_methods.last %>" data-hook>
+        <li id="payment_method_<%= method.id %>" class="list-group-item card_customed_li <%= 'last' if method == @order.available_payment_methods.last %>" data-hook>
           <fieldset>
             <%= render partial: "spree/checkout/payment/#{method.partial_name}", locals: { payment_method: method } %>
           </fieldset>
@@ -59,7 +59,7 @@
     <p class='field' data-hook='coupon_code'>
       <%= form.label :coupon_code %><br />
       <%= form.text_field :coupon_code %>
-      <button type="button" class="button" id="coupon-code-apply-button">
+      <button type="button" class="btn btn-default" id="coupon-code-apply-button">
         <%= t('spree.apply_code') %>
       </button>
 
@@ -69,9 +69,7 @@
   </div>
 </fieldset>
 
-<br class="space" />
-
 <div class="form-buttons" data-hook="buttons">
-  <%= submit_tag t('spree.save_and_continue'), class: 'continue button primary' %>
+  <%= submit_tag t('spree.save_and_continue'), class: 'continue btn btn-default customed-max-width' %>
   <script>Spree.disableSaveOnClick();</script>
 </div>
