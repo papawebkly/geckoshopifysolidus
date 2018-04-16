@@ -7,7 +7,11 @@
             <div class="thumbnail" style="background-image: url(<%= taxon.icon.url %>);">
               <div class="product-details text-center">
                 <div class="align-vertical">
-                  <h3><%= link_to taxon.name, seo_url(taxon) %></h3>
+                  <!--h3><%#= link_to taxon.name, seo_url(taxon) %></h3-->
+                  <h3><%= taxon.name %></h3>
+                  <%= link_to seo_url(taxon), class: 'btn btn-primary' do %>
+                      <i class="fa fa-bars"></i> View
+                  <% end %>
                 </div>
               </div>
             </div>
