@@ -49,9 +49,9 @@
         </div>
 
         <div class="add-to-cart form-group">
-          <%= number_field_tag :quantity, 1, class: 'title form-control', min: 1 %>
-          <%= button_tag class: 'large primary', id: 'add-to-cart-button', class: 'btn btn-success', type: :submit do %>
-            <%= t('spree.add_to_cart') %>
+          <%= number_field_tag :quantity, 1, class: 'title form-control customed_number_field', min: 1 %>
+          <%= button_tag class: 'large primary', id: 'add-to-cart-button', class: 'btn btn-default', type: :submit do %>
+            <i class="fa fa-shopping-cart"></i> <%= t('spree.add_to_cart') %>
           <% end %>
         </div>
       </div>

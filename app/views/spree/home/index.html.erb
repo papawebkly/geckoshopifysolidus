@@ -1,22 +1,7 @@
+
 <header class="fullscreen-element">
-	<div class="background-image-holder parallax-background overlay" data-stellar-background-ratio="0.9">
-		<%= image_tag('bg-7.jpg', class: 'background-image', alt: 'Background Image') %>
-	</div>
-
-	<div class="container align-vertical hero">
-		<div class="row">
-			<div class="col-md-5 col-sm-5 col-md-offset-7 col-sm-offset-7 text-left">
-				<h1>Modern Producs</h1>
-				<p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates depudiandae sint et molestiae.</p>
-				<div class="button-group">
-					<a href="#products" class="btn btn-default">Purchase</a>
-					<a href="#products" class="btn btn-primary">Shop Now</a>
-				</div>
-			</div>
-		</div><!--end of row-->
-	</div><!--end of container-->
+	<%= render partial: 'spree/shared/fullscreen_header' %>
 </header>
-
 <div data-hook="homepage_products" id="products" class="container">
   <% cache(cache_key_for_products) do %>
     <%= render partial: 'spree/shared/products', locals: { products: @products } %>

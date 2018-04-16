@@ -2836,3 +2836,35 @@ img.mfp-img {
   right: 0;
   padding-top: 0;
 }
+
+.customed_number_field {
+  display:block !important;
+  margin-bottom:10px !important;
+}
+.line-item-description{
+  font-size:16px;
+}
+.img-polaroid{
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+.small-font{
+  font-size:12px !important;
+}
+
+.thumbnail{
+  padding: 15px !important;
+}
+
+.overrid_coupon{
+  margin-bottom: 20px !important;
+  padding: 6px 10px !important;
+  font-size:14px !important;
+  width: 120px !important;
+}
+
+.overrid_order_button{
+  margin-top: 0px !important;
+  display: inline-block !important;
+  margin-bottom: 25px;
+}

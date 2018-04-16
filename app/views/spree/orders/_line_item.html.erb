@@ -1,7 +1,7 @@
 <% variant = line_item.variant -%>
 <%= order_form.fields_for :line_items, line_item do |item_form| -%>
-  <tr class="<%= cycle('', 'alt') %> line-item">
-    <td class="cart-item-image" data-hook="cart_item_image">
+  <tr class="<%= cycle('', 'alt') %> line-item product">
+    <td class="cart-item-image thumbnail" data-hook="cart_item_image">
       <% if variant.images.empty? %>
         <%= link_to(render('spree/shared/image', image: variant.product.display_image, size: :small), variant.product) %>
       <% else %>
@@ -12,11 +12,11 @@
       <h4><%= link_to line_item.name, product_path(variant.product) %></h4>
       <%= variant.options_text %>
       <% if line_item.insufficient_stock? %>
-        <span class="out-of-stock">
+        <span class="out-of-stock small-font">
           <%= t('spree.out_of_stock') %>&nbsp;&nbsp;<br />
         </span>
       <% end %>
-      <span class="line-item-description" data-hook="line_item_description">
+      <span class="line-item-description small-font" data-hook="line_item_description">
         <%= line_item_description_text(line_item.description) %>
       </span>
     </td>
