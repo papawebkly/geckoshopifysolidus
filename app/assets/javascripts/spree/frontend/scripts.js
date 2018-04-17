@@ -3,6 +3,7 @@ $(document).ready(function() {
 	"use strict";
 	
 	//Parallax
+
 	//Get Browser prefix
 	var prefix = (function () {
 		var styles = window.getComputedStyle(document.documentElement, ''),
@@ -171,6 +172,7 @@ $(document).ready(function() {
  
 
 	// Google maps
+
 	if ($('#map').length) {
 		google.maps.event.addDomListener(window, 'load', initialize_map('#map'));
 	}
