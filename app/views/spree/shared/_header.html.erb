@@ -53,6 +53,10 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="collapse-navigation">
                 <ul class="nav navbar-nav">
+                    <li>
+                        <%= link_to 'Home', root_path %>
+                    </li>
+                    
                     <% @taxonomies.each do |taxonomy| %>
                         <li class="dropdown">
                             <%= link_to "#", data: { toggle: "dropdown" }, "aria-haspopup" => 'true', "aria-expanded" => 'true', "role" => 'button', class: 'dropdown-toggle' do %>
@@ -61,21 +65,27 @@
                             <%= nav_tree(taxonomy.root, @taxon, 1) %>
                         </li>
                     <% end %>
+
+                    <li><a href="#">Catalog</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">About</a></li>
+                    <li>
+                        <%= link_to root_path do %>
+                            <i class="fa fa-paper-plane"></i> Contact
+                        <% end %>
+                    </li>
                     <!--li><a href="./contact.html"><i class="fa fa-paper-plane"></i> Contact</a></li-->
                     <!--a href="#" class="menu-cart"><i class="fa fa-shopping-cart"></i> $0.00</a-->
-
-                </ul>
-                <% if (current_order != nil) then %>
-                    <ul class="nav navbar-nav navbar-right">
+                    <% if (current_order != nil) then %>
                     <li id="link-to-cart" data-hook>
                         <%= link_to spree.cart_path, class: 'menu-cart' do %>
                             <i class="fa fa-shopping-cart"></i>
                             <%= "(#{current_order.item_count}) #{current_order.display_total.to_html}"   %>
                         <% end %>
                     </li>
-                    </ul>
-                <% end %>
-                <!--ul class="nav navbar-nav navbar-right">
+                    <% end %>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
                     <li>
                         <a href="#sidr" class="side-menu-opener">
                             <div class="bars">
@@ -85,7 +95,7 @@
                             </div>
                         </a>
                     </li>
-                </ul-->
+                </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container -->
     </nav>

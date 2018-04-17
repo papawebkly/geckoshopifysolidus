@@ -40,6 +40,8 @@ gem 'font-awesome-rails'
 gem 'solidus'
 gem 'solidus_auth_devise'
 
+# gem 'solidus_static_content', github: 'solidusio-contrib/solidus_static_content'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
